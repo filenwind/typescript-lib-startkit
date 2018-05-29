@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["esnext"],
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "paths": {
+      "lib/*": ["src/app/lib/*"]
+    },
+    "allowSyntheticDefaultImports": true,
+    "plugins": [
+      { "transform": "@zerollup/ts-transform-paths" }
+    ],
+    "esModuleInterop": true
+  }
+}
