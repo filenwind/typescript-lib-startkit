@@ -1,20 +1,23 @@
 import webpack from 'webpack';
 import appRootPath from 'app-root-path';
 import { TsConfigPathsPlugin } from 'awesome-typescript-loader';
-import webpackNodeExternals  from 'webpack-node-externals';
 import readPkg from 'read-pkg';
+
+const packageJson = readPkg.sync();
+const libraryName = packageJson.name;
+
+if (!libraryName) {
+  throw 'Most have name in package.json';
+}
 
 const mode = process.env.NODE_ENV === 'development' ? 'development' : 'production';
 
-const packageJson = readPkg.sync();
-
-const config: webpack.Configuration = {
+const commonConfig: webpack.Configuration = {
   mode,
   entry: appRootPath.resolve('./src/app'),
   output: {
     path: appRootPath.resolve('./dist/app'),
-    filename: 'index.js',
-    library: packageJson.name, // lib name
+    library: libraryName, // lib name, is requried for web config
     libraryTarget: 'umd',
     globalObject: 'this',
   },
@@ -27,12 +30,12 @@ const config: webpack.Configuration = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.tsx'],
+    extensions: ['.ts', '.tsx', '.js'],
     plugins: [
       new TsConfigPathsPlugin({ compiler: 'ttypescript' }),
     ],
   },
-  externals: [webpackNodeExternals()], // don't pack node_modules
 };
 
-export default config;
+export { libraryName };
+export default commonConfig;
