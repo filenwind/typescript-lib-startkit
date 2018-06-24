@@ -14,12 +14,12 @@ const mode = process.env.NODE_ENV === 'development' ? 'development' : 'productio
 
 const commonConfig: webpack.Configuration = {
   mode,
-  entry: appRootPath.resolve('./src/app'),
+  entry: appRootPath.resolve('src/app'),
   output: {
-    path: appRootPath.resolve('./dist/app'),
-    library: libraryName, // lib name, is requried for web config
+    path: appRootPath.resolve('dist/app'),
+    library: libraryName, // lib name, is required for web config
     libraryTarget: 'umd',
-    globalObject: 'this',
+    libraryExport: 'default',
   },
   module: {
     rules: [

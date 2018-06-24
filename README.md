@@ -6,7 +6,7 @@ Including [tslint](https://palantir.github.io/tslint/), [mocah test](https://moc
 ## Before use
 Change info in package.json
   - name
-    >used for webpack lib name too, you can edit libraryName at **`src/config/webpackConfig/commonConfig.ts`** if you want different global variable name
+    >used for webpack lib name too, you can edit libraryName at **`src/webpackConfig/commonConfig.ts`** if you want different global variable name
   - repository
   - author
   - license
