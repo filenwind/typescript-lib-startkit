@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import appRootPath from 'app-root-path';
 import { TsConfigPathsPlugin } from 'awesome-typescript-loader';
 import readPkg from 'read-pkg';
+import camelCase from 'camelcase';
 
 const packageJson = readPkg.sync();
 const libraryName = packageJson.name;
@@ -17,7 +18,7 @@ const commonConfig: webpack.Configuration = {
   entry: appRootPath.resolve('src/app'),
   output: {
     path: appRootPath.resolve('dist/app'),
-    library: libraryName, // lib name, is required for web config
+    library: camelCase(libraryName, { pascalCase: true }), // lib name, is required for web config
     libraryTarget: 'umd',
     libraryExport: 'default',
   },

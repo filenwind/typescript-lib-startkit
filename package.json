@@ -55,6 +55,7 @@
     "@zerollup/ts-transform-paths": "1.4.3",
     "app-root-path": "2.0.1",
     "awesome-typescript-loader": "5.0.0",
+    "camelcase": "^5.0.0",
     "chai": "4.1.2",
     "cross-env": "5.1.6",
     "mocha": "5.2.0",
