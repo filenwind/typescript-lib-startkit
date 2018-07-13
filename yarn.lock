@@ -5515,7 +5515,7 @@ tty-browserify@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/tty-browserify/-/tty-browserify-0.0.0.tgz#a157ba402da24e9bf957f9aa69d524eed42901a6"
 
-ttypescript@^1.4.2:
+ttypescript@^1.4.6:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/ttypescript/-/ttypescript-1.4.6.tgz#d719c4272f842b05b4ad66fd0ec57af0b8be6eb0"
   dependencies:
